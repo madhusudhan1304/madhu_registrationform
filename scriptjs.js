@@ -1,15 +1,15 @@
 function validateAge(today, dobobj) {
   var Age = today.getFullYear() - dobobj.getFullYear();
-  var mo = today.getMonth() - dobobj.getMonth();
-  if (mo < 0 || (mo === 0 && today.getDate() < dobobj.getDate())) {
+  var m = today.getMonth() - dobobj.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < dobobj.getDate())) {
     Age--;
   }
   return Age;
 }
 let dobelement = document.getElementById("dob");
 dobelement.addEventListener("change", () => {
-  let [y, mo, d] = document.getElementById("dob").value.split("-");
-  let dob = new Date(y, mo, d);
+  let [y, m, d] = document.getElementById("dob").value.split("-");
+  let dob = new Date(y, m, d);
   let Today = new Date();
   Age = validateAge(Today, dob);
   if (Age < 18 || Age > 55) {
